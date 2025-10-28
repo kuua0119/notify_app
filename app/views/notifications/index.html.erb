@@ -1,0 +1,10 @@
+<h2>通知一覧</h2>
+<% @notifications.each do |n| %>
+  <% if n.action == 'comment' %>
+    <p>
+      <%= User.find(n.visitor_id).name %> さんが
+      あなたの <%= link_to "投稿", n.post %> にコメントしました！
+    </p>
+  <% end %>
+<% end %>
+
