@@ -11,4 +11,14 @@ class Post < ApplicationRecord
       action: 'comment'
     )
   end
+
+  def create_notification_like!(current_user)
+    return if user_id == current_user.id
+    Notification.create(
+      visitor_id: current_user.id,
+      visited_id: user_id,
+      post_id: id,
+      action: 'like'
+    )
+  end
 end

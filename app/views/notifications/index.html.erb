@@ -6,5 +6,10 @@
       あなたの <%= link_to "投稿", n.post %> にコメントしました！
     </p>
   <% end %>
+
+  <% if notification.action == 'like' %>
+    <%= link_to notification.visitor.name, notification.visitor %> さんが
+    あなたの <%= link_to "投稿", notification.post %> にいいねしました！
+  <% end %>
 <% end %>
 
