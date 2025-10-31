@@ -11,6 +11,14 @@
   </head>
 
   <body>
+    <%= link_to notifications_path do %>
+      🔔 通知
+      <% if unchecked_notifications_count(current_user) > 0 %>
+        <span style="color: red; font-weight: bold;">
+          (<%= unchecked_notifications_count(current_user) %>)
+        </span>
+      <% end %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
